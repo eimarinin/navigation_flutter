@@ -1,0 +1,99 @@
+@media (prefers-color-scheme: light) {
+  html {
+    --text-color: #666666;
+    --bar-background-color: rgba(33, 33, 33, 0.1);
+    --background-color: #f7f7f7;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    --text-color: #aaaaaa;
+    --bar-background-color: rgba(247, 247, 247, 0.1);
+    --background-color: #212121;
+  }
+}
+
+body {
+    background-color: var(--background-color);
+}
+.loading {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.loader {
+    border: 0.3rem solid var(--background-color);
+    border-radius: 50%;
+    border-top: 0.3rem solid var(--text-color);
+    border-right: 0.3rem solid var(--text-color);
+    border-bottom: 0.3rem solid var(--text-color);
+    width: 6rem;
+    height: 6rem;
+    -webkit-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+}
+.loader-bar {
+    width: 8rem;
+    background-color: var(--bar-background-color);
+    height: 0.3rem;
+    border-radius: 0.06rem;
+    position: relative;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+}
+.loader-bar:after {
+    position: absolute;
+    content: '';
+    left:-25%;
+    width: 50%;
+    height: 0.3rem;
+    background-color: var(--text-color);
+    border-radius: 0.06rem;
+    animation: bar linear 1s infinite;
+}
+.logo {
+    width: 6rem;
+    height: 6rem;
+    margin-bottom: 0.8rem;
+    border-radius: 0.8rem;
+}
+.fade{
+    animation: fadeIn 0.2s ease 0.3s 1 normal;
+}
+@keyframes fadeIn {
+    0% {opacity: 0}
+    100% {opacity: 1}
+}
+@-webkit-keyframes spin {
+    0% {
+    -webkit-transform: rotate(0deg);
+    }
+    100% {
+    -webkit-transform: rotate(360deg);
+    }
+}
+@keyframes spin {
+    0% {
+    transform: rotate(0deg);
+    }
+    100% {
+    transform: rotate(360deg);
+    }
+}
+@keyframes bar {
+    0% {
+        left: -25%;
+    }
+    100% {
+        left: 100%;
+    }
+}

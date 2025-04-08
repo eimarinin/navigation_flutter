@@ -1,0 +1,309 @@
+# Describe the application information.
+# アプリケーション情報を記載します。
+app:
+
+  # The application icon is automatically set based on the image file specified in [path].
+  # Image files should be created as 1024 x 1024 png files.
+  # You can create an AdaptiveIcon for Android by specifying [background] and [foreground] in [adaptive_icon].
+  # [path]に指定された画像ファイルを元にアプリのアイコンを自動設定します。
+  # 画像ファイルは1024×1024のpngファイルで作成してください。
+  # [adaptive_icon]で[background]と[foreground]を指定するとAndroid用のAdaptiveIconを作成できます。
+  icon:
+    enable: false
+    path: assets/icon.png
+    adaptive_icon:
+      foreground:
+      background:
+  
+  # Describe the application information.
+  # For each language code, put the normal title in [title] and a short title for the app in [short_title]. Provide an overview of the app in [overview].
+  # By increasing the language code, information corresponding to that language can be described.
+  # By specifying [domain], you can change the web og tags to those appropriate for that domain.
+  # Specify a support email address in the [email] field.
+  # Specify the AppStore app ID in [apple_app_id].
+  # アプリケーションの情報を記載します。
+  # それぞれの言語コードに対して[title]に通常タイトル、[short_title]にアプリ用の短いタイトルを記載します。[overview]にアプリの概要を記載します。
+  # 言語コードを増やすことでその言語に対応した情報を記載することができます。
+  # [domain]を指定することでWebのogタグをそのドメインに応じたものに変更することができます。
+  # [email]にはサポート用のメールアドレスを指定します。
+  # [apple_app_id]にはAppStoreのアプリIDを指定します。
+  info:
+    enable: false
+    email:
+    domain:
+    apple_app_id: # e.g. idxxxxxx
+    locale:
+      en:
+        title: 
+        short_title:
+        overview:
+
+
+
+  # Create a `CertificateSigningRequest.certSigningRequest` for iOS.
+  # Please include your support email address in [email].
+  # iOS用の`CertificateSigningRequest.certSigningRequest`を作成します。
+  # [email]にサポート用のEmailアドレスを記載してください。
+  csr: 
+    enable: false
+    email:
+  
+  # Convert the cer file created by Certificate in AppleDeveloperProgram from `CertificateSigningRequest.certSigningRequest` to a p12 file.
+  # `CertificateSigningRequest.certSigningRequest`からAppleDeveloperProgramのCertificateにて作成されたcerファイルをp12ファイルに変換します。
+  p12:
+    enable: false
+
+  # Create a keystore for Android.
+  # Enter the alias of the keystore in [alias], the common name in [name], the organization name in [organization], the state or province in [state], and the country in [country].
+  # Android用のkeystoreを作成します。
+  # [alias]にkeystoreのエイリアス、[name]に共通名、[organization]に組織名、[state]に州や都道府県、[country]に国名を入力してください。
+  keystore: 
+    enable: false
+    alias: 
+    name: 
+    organization: 
+    state: Tokyo
+    country: Japan
+
+  # Configure the PrivacyManifest settings for IOS.
+  # Specify an array of [type] and [reason] in [manifests].
+  # [type] can be `user_defaults`, `file_timestamp`, `system_boot_time`, `disk_space`, or `active_keyboards`.
+  # [reason] specifies the following IDs.
+  # IOSのPrivacyManifestの設定を行います。
+  # [manifests]に[type]と[reason]の配列を指定します。
+  # [type]は`user_defaults`、`file_timestamp`、`system_boot_time`、`disk_space`、`active_keyboards`が指定できます。
+  # [reason]は下記のIDを指定します。
+  #   [active_keyboards]
+  #   - `3EC4.1`: Custom keyboard app on-device, per documentation
+  #   - `54BD.1`: Customize UI on-device, per documentation
+  #   [disk_space]
+  #   - `85F4.1`: Display to user on-device, per documentation
+  #   - `7D9E.1`: User-initiated bug report, per documentation
+  #   - `E174.1`: Write or delete file on-device, per documentation
+  #   [file_timestamp]
+  #   - `0A2A.1`: 3rd-party SDK wrapper on-device, per documentation
+  #   - `3B52.1`: Files provided to app by user, per documentation
+  #   - `C617.1`: Inside app or group container, per documentation
+  #   - `DDA9.1`: Display to user on-device, per documentation
+  #   [system_boot_time]
+  #   - `35F9.1`: Measure time on-device, per documentation
+  #   [user_defaults]
+  #   - `1C8F.1`: Access info from same App Group, per documentation
+  #   - `AC6B.1`: Access managed app configuration, per documentation
+  #   - `C56D.1`: 3rd-party SDK wrapper on-device, per documentation
+  #   - `CA92.1`: Access info from same app, per documentation
+  privacy_manifests:
+    enable: false
+    manifests:
+      - type: user_defaults
+        reason: C56D.1
+      - type: file_timestamp
+        reason: 0A2A.1
+  
+  # Describe the settings for using the AppTrackingTransparency library.
+  # Specify the permission message to use the library in IOS in [permission].
+  # Please include `en`, `ja`, etc. and write the message in that language there.
+  # AppTrackingTransparencyライブラリを利用するための設定を記述します。
+  # [permission]にIOSでライブラリを利用するための権限許可メッセージを指定します。
+  # `en`や`ja`などを記載しそこにその言語でのメッセージを記述してください。
+  app_tracking_transparency:
+    enable: false
+    permission:
+        en: If you [Allow], App will display ads optimized for you.
+
+  # Describe the settings for using the file picker.
+  # Specify the permission message to use the library in IOS in [permission].
+  # Please include `en`, `ja`, etc. and write the message in that language there.
+  # If you want to use the camera, set [camera]->[enable] to true and specify the permission message to use the camera in [permission].
+  # ファイルピッカーを利用するための設定を記述します。
+  # [permission]にIOSでライブラリを利用するための権限許可メッセージを指定します。
+  # `en`や`ja`などを記載しそこにその言語でのメッセージを記述してください。
+  # カメラを利用する場合は[camera]->[enable]をtrueにして、[permission]にカメラを利用するための権限許可メッセージを指定して下さい。
+  picker:
+    enable: false
+    permission:
+      en: Use the library for profile images.
+    camera:
+      enable: false
+      permission:
+        en: Use the camera for profile images.
+
+
+
+# This section contains information related to Firebase.
+# Firebase関連の情報を記載します。
+firebase:
+  # Set the Firebase project ID.
+  # FirebaseのプロジェクトIDを設定します。
+  project_id:
+
+  # Enable Firebase Firestore.
+  # Set [generate_rules_and_indexes] to `true` to automatically generate Firestore security rules and indexes.
+  # If [primary_remote_index] is set to `true`, indexes on the console are prioritized and automatic index import is enabled.
+  # Firebase Firestoreを有効にします。
+  # [generate_rules_and_indexes]を`true`にするとFirestoreのセキュリティルールとインデックスを自動生成します。
+  # [primary_remote_index]を`true`にするとコンソール上のインデックスが優先されるため、インデックスの自動インポートが有効になります。
+  firestore:
+    enable: false
+    generate_rules_and_indexes: false
+    primary_remote_index: false
+
+  # Enable Firebase Data Connect.
+  # Firebase Data Connectを有効にします。
+  dataconnect:
+    enable: false
+
+  # Enable Firebase Authentication.
+  # Firebase Authenticationを有効にします。
+  authentication:
+    enable: false
+
+
+
+  # Enable Cloud Storage for Firebase.
+  # If you want to use CORS to retrieve images, etc., set [cors] to `true`.
+  # Cloud Storage for Firebaseを有効にします。
+  # CORSで画像等を取得する場合は[cors]を`true`にしてください。
+  storage:
+    enable: false
+    cors: false
+
+  # Enable Cloud Functions for Firebase.
+  # Cloud Functions for Firebaseを有効にします。
+  functions:
+    enable: false
+
+    # Specify the Region for FirebaseFunctions.
+    # Please refer to the following link for the Region of FirebaseFunctions.
+    # FirebaseFunctionsのRegionを指定します。
+    # FirebaseFunctionsのRegionは以下のリンクを参考にしてください。
+    # https://firebase.google.com/docs/functions/locations?hl=ja
+    region: asia-northeast1
+  
+  # Enable Firebase Remote Config.
+  # Firebase Remote Configを有効にします。
+  remote_config:
+    enable: false
+  
+  # Enable Firebase App Check.
+  # Firebase App Checkを有効にします。
+  app_check:
+    enable: false
+
+  # Enable Firebase Analytics and Firebase Crashlytics.
+  # If you are unable to activate Analytics, please check if the "Project Settings" -> "Integration" -> "GoogleAnalytics" application is successfully linked.
+  # Firebase AnalyticsとFirebase Crashlyticsを有効にします。
+  # Analyticsの有効化が出来ない場合は、「プロジェクトの設定」→「統合」→「GoogleAnalytics」のアプリが正常に連携されているかを確認してください。
+  logger:
+    enable: false
+
+  # Configure Firebase Hosting settings.
+  # Set [use_flutter] to `true` so that all routes point to index.html, and set it to `true` when using Flutter Web.
+  # Even in the above case, /**/terms.html and /**/privacy.html will not be directed to the root.
+  # Set [github_actions] to `true` to deploy to Firebase Hosting with Github Actions.
+  # Firebase Hostingの設定を行います。
+  # [use_flutter]を`true`にするとすべてのルートがindex.htmlを向くようになります。Flutter Webを利用する際に`true`にしてください。
+  # 上記の場合でも/**/terms.html、/**/privacy.htmlはルートに向かないようになります。
+  # [github_actions]を`true`にするとGithub ActionsでFirebase Hostingにデプロイするようになります。
+  hosting:
+    enable: false
+    github_actions: false
+    use_flutter: true
+  
+  # Configure Firebase DynamicLinks. 
+  # Describe the URI with URL scheme in [host].
+  # Firebase DynamicLinksの設定を行います。
+  # [host]にURLスキームを入れたURIを記述してください。
+  # ```
+  # host: https://mathru.net
+  # ```
+  dynamic_links:
+    enable: false
+    host:
+
+  # The contents of the target [path] document are indexed by Algolia and made searchable.
+  # Please enter Algolia's Application ID in [app_id] and Algolia's API Key in [api_key].
+  # Each can be confirmed and issued from the [API Key] screen of the [Settings] screen on the lower left of the dashboard.
+  # [path] must be a path for the collection.
+  # 対象の[path]のドキュメントの内容をAlgoliaにてインデックスし、検索可能にします。
+  # [app_id]にAlgoliaのApplication ID、[api_key]にAlgoliaのAPI Keyを記載してください。
+  # それぞれダッシュボードの左下の[Settings]画面の[API Key]の画面から確認・発行が可能です。
+  # [path]は必ずコレクション用のパスである必要があります。
+  algolia:
+    enable: false
+    path: 
+    app_id:
+    api_key:
+
+
+  
+  # Enable Firebase Messaging.
+  # Specify ChannelNotificationId for Android in [channel_id].
+  # Specify an image path in [android_notification_icon] to set a notification icon for Android for whiteout.
+  # Firebase Messagingを有効にします。
+  # [channel_id]にAndroid用のChannelNotificationIdを指定してください。
+  # [android_notification_icon]に画像パスを指定するとAndroid用の白抜き用の通知アイコンを設定できます。
+  messaging:
+    enable: false
+    channel_id: 
+    android_notification_icon: 
+
+
+
+
+
+# Github-related information will be described.
+# Github関連の情報を記載します。
+github:
+  # Enable Github Actions to perform CI/CD builds on each platform.
+  # Enter a numerical value in [increment_number] to set the initial value for the version number increment.
+  # Enter the platform you wish to specify in [platform], separated by spaces.
+  # Available platforms are `android`, `ios`, `web`, `windows`, `macos`, and `linux`.
+  # Github Actionsを有効にして各プラットフォームでCI/CDビルドを行うようにします。
+  # [increment_number]に数値を記入するとバージョン番号のインクリメントの初期値を設定できます。
+  # [platform]で指定したいプラットフォームをスペース区切り入力します。
+  # 使用できるプラットフォームは`android`、`ios`、`web`、`windows`、`macos`、`linux`です。
+  #
+  # [Android]
+  # Json for the service account is required under the `android` folder, please refer to https://mathru.notion.site/Google-Play-Developer-df655aff2dfb49988b82feb7aae3c61b to set it up Please refer to the `android` folder to set it up.
+  #
+  # [IOS]
+  # AuthKey_xxxxx.p8 file and development.p12 generated from development.cer are required under the `ios` folder. https://mathru.notion.site/AppStoreConnect-ID-f516ff1a Please refer to 767146f69acd6780fbcf20fe to set it up.
+  #
+  # [Android]
+  # サービスアカウント用のJsonが`android`フォルダ以下に必要です。https://mathru.notion.site/Google-Play-Developer-df655aff2dfb49988b82feb7aae3c61b を参考に設定してください。
+  #
+  # [IOS]
+  # AuthKey_xxxx.p8ファイルとdevelopment.cerから生成したdevelopment.p12が`ios`フォルダ以下に必要です。https://mathru.notion.site/AppStoreConnect-ID-f516ff1a767146f69acd6780fbcf20feを参考に設定してください。
+  action:
+    enable: false
+    increment_number: 1
+    platform: android ios web
+    android:
+        # Change to completed after the app is released.
+        # アプリをリリースした後は completed に変更してください。
+        status: draft
+        changes_not_sent_for_review:  # true or false or empty
+
+    web:
+      # Please include the path to your current repository on Github in the format `user/repository name`.
+      # Githubの現在のリポジトリのパスを`ユーザー/レポジトリ名`のフォーマットで記載してください。
+      repository: 
+
+    ios:
+      # Copy the Issuer ID listed on the page at https://appstoreconnect.apple.com/access/integrations/api.
+      # https://appstoreconnect.apple.com/access/integrations/api のページに記載されているIssuer IDをコピーしてください。
+      issuer_id: 
+      # Please copy and include your team ID from https://developer.apple.com/account.
+      # https://developer.apple.com/account のチームIDをコピーして記載してください。
+      team_id: 
+  
+  # Describe the settings for automatic review when a Github pull request is created.
+  # Enter the OpenAI API key in [openai_api_key].
+  # Githubのプルリクエストが作成された際に自動でレビューを行うための設定を記述します。
+  # OpenAIのAPIキーを[openai_api_key]に記述してください。
+  review:
+    enable: false
+    openai_api_key:
+
+
