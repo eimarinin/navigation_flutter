@@ -14,6 +14,8 @@ export 'theme.dart';
 export 'localize.dart';
 export 'adapter.dart';
 
+import 'main.router.dart';
+
 /// App Ref.
 ///
 /// ```dart
@@ -63,6 +65,9 @@ final appLogger = Logger();
 /// App Flavor.
 const flavor = String.fromEnvironment("FLAVOR");
 
+@appRoute
+final appRouter = AutoRouter();
+
 /// App.
 void main() {
   runMasamuneApp(
@@ -70,7 +75,9 @@ void main() {
       title: title,
       appRef: appRef,
       theme: theme,
-      routerConfig: router,
+      // home: HomePage(),
+      // routerConfig: router,
+      routerConfig: appRouter,
       localize: l,
       authAdapter: authAdapter,
       modelAdapter: modelAdapter,

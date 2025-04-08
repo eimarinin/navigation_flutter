@@ -1,8 +1,6 @@
 // Package imports:
 import 'package:masamune/masamune.dart';
-
-// Project imports:
-import 'pages/home.dart';
+import 'package:navigation/navigation.dart';
 
 /// App Router.
 ///
@@ -11,11 +9,6 @@ import 'pages/home.dart';
 /// router.pop();               // Pop page.
 /// ```
 final router = AppRouter(
-  // TODO: Please configure the initial routing and redirection settings.
-  boot: null,
-  initialQuery: HomePage.query(),
-  redirect: [],
-  pages: [
-    // TODO: Add the page query to be used for routing.
-  ],
+  initialQuery: TabItem.first.query,
+  pages: [...TabItem.values.map((e) => e.builder)],
 );

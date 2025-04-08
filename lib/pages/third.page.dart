@@ -3,20 +3,20 @@
 
 // ignore_for_file: unused_field, unused_element, require_trailing_commas, prefer_const_constructors, unnecessary_overrides, prefer_const_literals_to_create_immutables,  unnecessary_null_in_if_null_operators, library_prefixes, directives_ordering, unused_local_variable
 
-part of 'home.dart';
+part of 'third.dart';
 
 // **************************************************************************
 // PageGenerator
 // **************************************************************************
 
 @immutable
-class _$HomePageQuery extends RouteQueryBuilder {
-  const _$HomePageQuery();
+class _$ThirdPageQuery extends RouteQueryBuilder {
+  const _$ThirdPageQuery();
 
-  static final _regExp = RegExp(r"^$");
+  static final _regExp = RegExp(r"^third$");
 
   @useResult
-  RouteQuery call() => _$_HomePageQuery(null);
+  RouteQuery call() => _$_ThirdPageQuery(null);
 
   @override
   RouteQuery? resolve(String? path) {
@@ -30,26 +30,26 @@ class _$HomePageQuery extends RouteQueryBuilder {
         return null;
       }
       final query = Uri.splitQueryString(split.last);
-      return _$_HomePageQuery(path);
+      return _$_ThirdPageQuery(path);
     } else {
       path = path.trimQuery().trimString("/");
       final match = _regExp.firstMatch(path.trimQuery().trimString("/"));
       if (match == null) {
         return null;
       }
-      return _$_HomePageQuery(path);
+      return _$_ThirdPageQuery(path);
     }
   }
 }
 
 @immutable
-class _$_HomePageQuery extends RouteQuery {
-  const _$_HomePageQuery(this._path);
+class _$_ThirdPageQuery extends RouteQuery {
+  const _$_ThirdPageQuery(this._path);
 
   final String? _path;
 
   @override
-  String get path => _path ?? _parameters;
+  String get path => _path ?? "third$_parameters";
 
   String get _parameters {
     final $q = <String, String>{};
@@ -59,7 +59,7 @@ class _$_HomePageQuery extends RouteQuery {
   }
 
   @override
-  String get name => "home";
+  String get name => path;
 
   @override
   bool get hidden => false;
@@ -72,7 +72,7 @@ class _$_HomePageQuery extends RouteQuery {
 
   @override
   W? widget<W extends Widget>() {
-    final w = HomePage();
+    final w = ThirdPage();
     if (w is! W) {
       return null;
     }
@@ -87,7 +87,7 @@ class _$_HomePageQuery extends RouteQuery {
     return AppPageRoute<E>(
       path: path,
       transitionQuery: query ?? transition,
-      builder: (context) => HomePage(),
+      builder: (context) => ThirdPage(),
     );
   }
 }
